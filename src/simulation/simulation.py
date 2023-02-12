@@ -205,7 +205,7 @@ def time_integration(delta_t: float, current_time: float, gamma: float, dx: floa
 
     # Checking if there is an image folder, if not, make one.
     if 'sim_images' not in os.listdir():
-        os.makedirs('sim_images')
+        os.makedirs('../../sim_images')
     # Clearing all the previous images from past simulation runs
     path = os.path.join(os.curdir + '/sim_images')
     files = os.listdir(path)
@@ -298,7 +298,7 @@ def time_integration(delta_t: float, current_time: float, gamma: float, dx: floa
     sys.stdout.write("[%-20s] %d%%\r" % ('=' * 20, 100))
     sys.stdout.write('Simulation Complete!')
     # Saving the figure as a gif
-    with imageio.get_writer('Fluid_Sim.gif', mode='I') as writer:
+    with imageio.get_writer('../../Fluid_Sim.gif', mode='I') as writer:
         for plot_num in range(1, output_count):
             image = imageio.imread(f'sim_images/finite_volume{plot_num}.png')
             writer.append_data(image)
@@ -345,7 +345,6 @@ def main():
     vx[64:] = -1
     # vx = (np.random.rand(*vx.shape) - 0.25)
     # vy = (np.random.rand(*vy.shape) - 0.25)
-
 
     # Gettting the conserved variables
     mass, momx, momy, energy = get_conservative(rho, vx, vy, p, gamma, vol)

@@ -1,7 +1,7 @@
 """
 Management system for fluid simulation
 """
-from simulation import main
+from src import main
 
 if __name__ == '__main__':
     main()
